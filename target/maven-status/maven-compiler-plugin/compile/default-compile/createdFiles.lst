@@ -1,0 +1,7 @@
+com\infrastructure\pageobject\HomePage.class
+com\infrastructure\pageobject\CartPage.class
+com\infrastructure\pageobject\ConfirmationPage.class
+com\infrastructure\pageobject\ProductListingPage.class
+com\infrastructure\util\Page3Definition.class
+com\infrastructure\page\PageFactory.class
+com\infrastructure\pageobject\CheckoutPage.class
