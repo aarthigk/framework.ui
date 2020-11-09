@@ -11,62 +11,80 @@ public class CheckoutPage {
     public CheckoutPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
-
-    @FindBy(id = "billing_first_name")
+    
+    @FindBy(xpath="//*[@id=\"address_delivery\"]/li[7]/a/span")
+    public WebElement update;
+    
+    @FindBy(xpath="//*[@id='submitAddress']/span")
+    public WebElement save;
+    
+    @FindBy(xpath="//*[@id=\"center_column\"]/form/p/button/span")
+    public WebElement proceed;
+    
+    @FindBy(xpath="//*[@id='form']/p/button/span")
+    public WebElement proceedtwo;
+    
+    @FindBy(id = "firstname")
     public WebElement txtbx_FirstName;
 
-    @FindBy(id = "billing_last_name")
+    @FindBy(id = "lastname")
     public WebElement txtbx_LastName;
 
-    @FindBy(id = "billing_email")
-    public WebElement txtbx_Email;
+    //@FindBy(id = "billing_email")
+    //public WebElement txtbx_Email;
 
-    @FindBy(id = "billing_phone")
+    @FindBy(id = "phone")
     public WebElement txtbx_Phone;
 
-    @FindBy(id = "billing_country")
+    @FindBy(id = "id_country")
     public WebElement select_Country;
 
-    @FindBy(id = "billing_city")
+    @FindBy(id = "city")
     public WebElement txtbx_City;
 
-    @FindBy(id = "billing_address_1")
+    @FindBy(id = "address1")
     public WebElement txtbx_Address;
 
-    @FindBy(css = "#billing_postcode")
+    @FindBy(id = "postcode")
     public WebElement txtbx_PostCode;
 
-    @FindBy(css = ".woocommerce-form__input-checkbox")
+    @FindBy(id = "cgv")
     public WebElement chkbx_AcceptTermsAndCondition;
 
     @FindBy(id = "place_order")
     public WebElement btn_PlaceOrder;
 
     public void enter_Name(String name) {
+    	txtbx_FirstName.clear();
         txtbx_FirstName.sendKeys(name);
     }
 
     public void enter_LastName(String lastName) {
+    	 txtbx_LastName.clear();
         txtbx_LastName.sendKeys(lastName);
     }
 
-    public void enter_Email(String email) {
-        txtbx_Email.sendKeys(email);
-    }
+//    public void enter_Email(String email) {
+//        txtbx_Email.sendKeys(email);
+//    }
 
     public void enter_Phone(String phone) {
+    	txtbx_Phone.clear();
         txtbx_Phone.sendKeys(phone);
     }
 
     public void enter_City(String city) {
+    	txtbx_City.clear();
         txtbx_City.sendKeys(city);
     }
 
     public void enter_Address(String address) {
+    	txtbx_Address.clear();
         txtbx_Address.sendKeys(address);
     }
 
     public void enter_PostCode(String postCode) {
+    	txtbx_PostCode.clear();
         txtbx_PostCode.sendKeys(postCode);
     }
 
@@ -76,7 +94,7 @@ public class CheckoutPage {
     }
 
     public void check_TermsAndCondition() {
-      //  chkbx_AcceptTermsAndCondition.click();
+        chkbx_AcceptTermsAndCondition.click();
     }
 
     public void clickOn_PlaceOrder() {
@@ -86,12 +104,31 @@ public class CheckoutPage {
     public void fill_PersonalDetails() throws InterruptedException {
         enter_Name("TestAutomation");
         enter_LastName("Opencast");
-        select_Country("United Kingdom (UK)");
+        select_Country("United States");
         enter_Address("Hoults Yard, Walker Road");
         enter_City("Newcastle upon Tyne");
-        enter_PostCode("NE6 3PE");
+        enter_PostCode("99524");
         Thread.sleep(2000);
         enter_Phone("07438862327");
-        enter_Email("test@test.com");
+       // enter_Email("test@test.com");
     }
+
+	public void click_update() {
+		// TODO Auto-generated method stub
+		update.click();
+	}
+
+	public void click_save() {
+		// TODO Auto-generated method stub
+		save.click();
+	}
+
+	public void click_proceed() {
+		// TODO Auto-generated method stub
+		proceed.click();
+	}
+	public void click_proceedtwo() {
+		// TODO Auto-generated method stub
+		proceedtwo.click();
+	}
 }

@@ -30,6 +30,8 @@ public class HomePage {
 
     public void perform_Search(String search) {
         btn_Search.click();
+        btn_Search.sendKeys(search);
+        input_Search.isDisplayed();
         input_Search.sendKeys(search);
         input_Search.sendKeys(Keys.RETURN);
     }

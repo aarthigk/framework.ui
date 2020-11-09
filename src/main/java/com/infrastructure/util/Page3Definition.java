@@ -19,6 +19,7 @@ public class Page3Definition {
 	    ProductListingPage productListingPage;
 	    CartPage cartPage;
 	    CheckoutPage checkoutPage;
+	    SigninPage signinPage;
 
 	    @Given("I am on Home Page")
 	    public void i_am_on_Home_Page() {
@@ -33,18 +34,18 @@ public class Page3Definition {
 
 	    @When("I search for product in dress category")
 	    public void i_search_for_product_in_dress_category() throws InterruptedException {
-	        Thread.sleep(1000);
+	       // Thread.sleep(1000);
 	        homePage.perform_Search("Faded Short Sleeve T-shirts");
-	        Thread.sleep(1000);
+	        Thread.sleep(4000);
 
 	    }
 
 	    @When("I choose to buy the first item")
 	    public void i_choose_to_buy_the_first_item() throws InterruptedException {
 	        productListingPage = new ProductListingPage(driver);
-	        Thread.sleep(1000);
-	        productListingPage.select_Product(0);
-	        productListingPage.makeSelection(1);
+	        Thread.sleep(2000);
+	       // productListingPage.select_Product(0);
+	      //  productListingPage.makeSelection(1);
 	        productListingPage.clickOn_AddToCart();
 	    }
 
@@ -53,14 +54,26 @@ public class Page3Definition {
 	        cartPage = new CartPage(driver);
 	        Thread.sleep(1000);
 	        cartPage.clickOn_Cart();
+	        Thread.sleep(1000);
 	        cartPage.clickOn_ContinueToCheckout();
+	    }
+	    
+	    @Then("^I Sign in using email and password$")
+	    public void i_Sign_in_using_email_and_password() throws InterruptedException {
+	    	signinPage = new SigninPage(driver);
+		        Thread.sleep(1000);
+	        signinPage.enter_emailpasswd();
+	        signinPage.click_Signon();
 	    }
 
 	    @When("I enter my personal details")
 	    public void i_enter_my_personal_details() throws InterruptedException {
 	        checkoutPage = new CheckoutPage(driver);
 	        Thread.sleep(1000);
+	        checkoutPage.click_update();
 	        checkoutPage.fill_PersonalDetails();
+	        checkoutPage.click_save();
+	        checkoutPage.click_proceed();
 
 	    }
 
@@ -68,8 +81,9 @@ public class Page3Definition {
 	    public void i_place_the_order() throws InterruptedException {
 	        checkoutPage = new CheckoutPage(driver);
 	        Thread.sleep(1000);
-	    //    checkoutPage.check_TermsAndCondition();
-	     //   checkoutPage.clickOn_PlaceOrder();
+	        checkoutPage.check_TermsAndCondition();
+	        checkoutPage.click_proceedtwo();
+	        checkoutPage.clickOn_PlaceOrder();
 	        driver.manage().deleteAllCookies();
 	        driver.close();
 	        driver.quit();

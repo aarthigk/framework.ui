@@ -14,13 +14,15 @@ public class ProductListingPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(css = "button.single_add_to_cart_button")
+    @FindBy (xpath= "//*[@id='center_column']/ul/li/div/div[2]/div[2]/a[1]/span")
+    //(css="button.ajax_add_to_cart_button span") 
+    //(css = "button.single_add_to_cart_button")
     public WebElement btn_AddToCart;
-
+ 
     @FindAll(@FindBy(css = ".noo-product-inner"))
     public List<WebElement> prd_List;
 
-    @FindBy(id="pa_color")
+    @FindBy(id="color_1")//pa_color
     public WebElement selectColour;
 
     @FindBy(id="pa_size")
@@ -33,11 +35,12 @@ public class ProductListingPage {
     public void makeSelection(int index) {
         Select colour = new Select(selectColour);
         colour.selectByIndex(index);
-        Select size  = new Select(selectSize);
-        size.selectByIndex(index);
+     //   Select size  = new Select(selectSize);
+       // size.selectByIndex(index);
     }
 
     public void clickOn_AddToCart() {
+    	btn_AddToCart.isDisplayed();
         btn_AddToCart.click();
     }
 }
