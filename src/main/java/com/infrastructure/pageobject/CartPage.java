@@ -5,10 +5,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.infrastructure.dataProviders.ConfigFileReader;
+
+import cucumber.TestContext;
+
 public class CartPage {
+	WebDriver driver;
+	ConfigFileReader configFileReader;
 
     public CartPage(WebDriver driver) {
+    	this.driver = driver;
         PageFactory.initElements(driver, this);
+        //configFileReader = new ConfigFileReader();
     }
 
     @FindBy(xpath="//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a/span")

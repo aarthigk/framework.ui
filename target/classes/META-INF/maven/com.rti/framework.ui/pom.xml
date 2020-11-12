@@ -12,8 +12,12 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-
+<!--   </properties> -->
+<!--   <properties> -->
+        <cucumber.version>4.2.0</cucumber.version>
+        <cucumber-picocontainer.version>4.2.0</cucumber-picocontainer.version>
+        <junit.version>4.12</junit.version>
+    </properties>
   <dependencies>
    
 <!-- Dependencies starts here -->      
@@ -56,6 +60,12 @@
     <artifactId>cucumber-reporting</artifactId>
     <version>3.7.0</version>
 </dependency>
+<dependency>
+         <groupId>io.rest-assured</groupId>
+         <artifactId>rest-assured</artifactId>
+         <version>4.2.0</version>
+         <scope>test</scope>
+      </dependency>
 
 <!-- https://mvnrepository.com/artifact/org.powermock/powermock-module-junit4 -->
 <!-- <dependency> -->
@@ -64,6 +74,13 @@
 <!--     <version>1.7.1</version> -->
 <!--     <scope>test</scope> -->
 <!-- </dependency> -->
+
+ <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-picocontainer</artifactId>
+            <version>${cucumber-picocontainer.version}</version>
+            <scope>test</scope>
+        </dependency>
 
 </dependencies> 
 <!-- Dependencies ends here -->

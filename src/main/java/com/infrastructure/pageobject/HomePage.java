@@ -6,13 +6,23 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.infrastructure.dataProviders.ConfigFileReader;
+import com.infrastructure.manager.FileReaderManager;
+
+import cucumber.TestContext;
+
 public class HomePage {
 
+    HomePage homePage;
+    TestContext testContext;
     WebDriver driver;
+    ConfigFileReader configFileReader;
 
     public HomePage(WebDriver driver) {
+      			
         this.driver = driver;
-        PageFactory.initElements(driver, this);
+         PageFactory.initElements(driver, this);
+        // configFileReader = new ConfigFileReader();
     }
     
    //*[@id="search_query_top"]
@@ -25,7 +35,7 @@ public class HomePage {
 
 
     public void navigateTo_HomePage() {
-        driver.get("http://automationpractice.com/index.php");
+       driver.get(FileReaderManager.getInstance().getConfigReader().getApplicationUrl());
     }
 
     public void perform_Search(String search) {

@@ -10,7 +10,8 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
 		format = {"pretty", "html:target/cucumber", "json:target/cucumber/cucumber.json"},
 		features = {"features/"}, //the path of the feature files
-		glue={"com.infrastructure.steps"}, //the path of the step definition files
+		//glue={"com.infrastructure.steps"}, //the path of the step definition files
+		glue= {"stepDefinition"},
 		monochrome = true, //display the console output in a proper readable format
 		strict = true,//it will check if any step is not defined in step definition file
 		tags = {"@smoketest"}			

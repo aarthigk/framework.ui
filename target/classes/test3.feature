@@ -8,6 +8,6 @@ Feature: Automated End2End Tests
 	And I move to checkout from mini cart
 	Then I Sign in using email and password
     And I enter my personal details
-   And I place the order
-   
+    And I place the order
+    
    

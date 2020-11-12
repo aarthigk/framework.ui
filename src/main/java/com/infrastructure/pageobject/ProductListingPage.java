@@ -8,10 +8,22 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import com.infrastructure.dataProviders.ConfigFileReader;
+
+import cucumber.TestContext;
+
 public class ProductListingPage {
+	
+	TestContext testContext;
+	ProductListingPage productListingPage;
+	 WebDriver driver;
+	 ConfigFileReader configFileReader;
 
     public ProductListingPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+		 this.driver = driver;
+         PageFactory.initElements(driver, this);
+        // configFileReader = new ConfigFileReader();
+    	
     }
 
     @FindBy (xpath= "//*[@id='center_column']/ul/li/div/div[2]/div[2]/a[1]/span")

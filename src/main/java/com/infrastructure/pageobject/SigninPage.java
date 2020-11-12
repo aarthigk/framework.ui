@@ -5,13 +5,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import cucumber.TestContext;
+
 public class SigninPage {
+	WebDriver driver;
 	
-    WebDriver driver;
 
     public SigninPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+    		this.driver = driver;
+            PageFactory.initElements(driver, this);
+    	
     }
         @FindBy(id="passwd")
         public WebElement password;

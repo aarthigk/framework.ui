@@ -6,12 +6,23 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import com.infrastructure.dataProviders.ConfigFileReader;
+
+import cucumber.TestContext;
+
 public class CheckoutPage {
+	TestContext testContext;
+	CheckoutPage checkoutPage;
+	WebDriver driver;
+	ConfigFileReader configFileReader;
 
     public CheckoutPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-    }
-    
+			
+    	this.driver = driver;
+    	PageFactory.initElements(driver, this);
+    	//configFileReader = new ConfigFileReader();
+}
+
     @FindBy(xpath="//*[@id=\"address_delivery\"]/li[7]/a/span")
     public WebElement update;
     
